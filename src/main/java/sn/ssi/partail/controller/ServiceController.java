@@ -6,7 +6,9 @@ import sn.ssi.partail.dao.IproduitDao;
 import sn.ssi.partail.dao.IserviceDao;
 import sn.ssi.partail.model.Produit;
 import sn.ssi.partail.model.Service;
+import sn.ssi.partail.model.TypeService;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 @RestController
@@ -34,7 +36,8 @@ public class ServiceController {
 
    /*modifier un produit*/
    @PutMapping(value = "/service")
-   public void modifierService(@RequestBody Service service) {
+   public void modifierService(@RequestBody Service service)
+   {
       serviceDao.save(service);
    }
 

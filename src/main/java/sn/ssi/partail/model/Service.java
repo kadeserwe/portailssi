@@ -1,11 +1,13 @@
 package sn.ssi.partail.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Service {
+@Table(name = "service")
+public class Service implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     private  int id;
@@ -13,14 +15,19 @@ public class Service {
     private String description;
     private int url;
     private int isDeleted;
+    private TypeService typeservice;
+
+
+
     public Service() {
     }
-    public Service(int id, String libelle, String description, int url, int isDeleted) {
+    public Service(int id, String libelle, String description, int url, int isDeleted,TypeService typeservice) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.url = url;
         this.isDeleted= isDeleted;
+        this.typeservice =typeservice;
     }
 
     public int getId() {
@@ -63,6 +70,16 @@ public class Service {
         this.isDeleted = isDeleted;
     }
 
+
+    public TypeService getTypeservice() {
+        return typeservice;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "typeservice_id")
+    public void setTypeservice(TypeService typeservice) {
+        this.typeservice = typeservice;
+    }
 
 
     @Override

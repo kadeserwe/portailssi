@@ -34,6 +34,7 @@ public class ProduitController {
    /*modifier un produit*/
    @PutMapping(value = "/produits")
    public void modifierProduit(@RequestBody Produit produit) {
+       
       produitDao.save(produit);
    }
 

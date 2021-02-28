@@ -7,25 +7,24 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "produit")
-public class Produit implements Serializable {
+@Table(name = "typeService")
+public class TypeService implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
     private  int id;
     private String libelle;
-    private String description;
-    private int url;
+
+
+
     private int isDeleted;
-    public Produit() {
+    public TypeService() {
     }
-    public Produit(int id, String libelle, String description, int url, int isDeleted) {
+    public TypeService(int id, String libelle, int isDeleted) {
         this.id = id;
         this.libelle = libelle;
-        this.description = description;
-        this.url = url;
-        this.isDeleted= isDeleted;
+        this.id =  isDeleted;
     }
 
     public int getId() {
@@ -43,23 +42,6 @@ public class Produit implements Serializable {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getUrl() {
-        return url;
-    }
-
-    public void setUrl(int url) {
-        this.url = url;
-    }
-
     public int getIsDeleted() {
         return isDeleted;
     }
@@ -72,13 +54,12 @@ public class Produit implements Serializable {
 
     @Override
     public String toString() {
-        return "Produit{" +
+        return "typeService{" +
                 "id=" + id +
                 ", libelle='" + libelle + '\'' +
-                ", description='" + description + '\'' +
-                ", url=" + url +
                 ",isDeleted=" + isDeleted +
                 '}';
 
     }
 }
+
