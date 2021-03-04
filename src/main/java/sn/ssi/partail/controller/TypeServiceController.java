@@ -3,7 +3,7 @@ package sn.ssi.partail.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sn.ssi.partail.dao.ItypeServiceDao;
-import sn.ssi.partail.model.TypeService;
+import sn.ssi.partail.model.TypeServiceModel;
 
 import java.util.List;
 
@@ -14,25 +14,25 @@ public class TypeServiceController {
 
     //Récupérer tous les type services
    @GetMapping(value="typeservice")
-   public List<TypeService> listeTypeProduits(){
+   public List<TypeServiceModel> listeTypeProduits(){
 
        return typeserviceDao.findAll();
    }
 
    //Récupérer un typeService par son Id
    @GetMapping(value="/typeservice/{id}")
-   public TypeService recupererserviceId(@PathVariable int id) {
+   public TypeServiceModel recupererserviceId(@PathVariable int id) {
       return typeserviceDao.findById(id);
    }
    //ajouter un service
    @PostMapping("/typeservice")
-   public void ajouterTypeService(@RequestBody TypeService typeservice) {
+   public void ajouterTypeService(@RequestBody TypeServiceModel typeservice) {
        typeserviceDao.save(typeservice);
     }
 
    /*modifier un type service*/
    @PutMapping(value = "/typeservice")
-   public void modifierTypeService(@RequestBody TypeService typeservice) {
+   public void modifierTypeService(@RequestBody TypeServiceModel typeservice) {
       typeserviceDao.save(typeservice);
    }
 
@@ -41,7 +41,7 @@ public class TypeServiceController {
    public void supprimerTypeService(@PathVariable int id) {
      if(id!=0){
         try {
-            TypeService typeservice= typeserviceDao.findById(id);
+            TypeServiceModel typeservice= typeserviceDao.findById(id);
            typeservice.setIsDeleted(1);
            typeserviceDao.save(typeservice);
         }catch (Exception e) {

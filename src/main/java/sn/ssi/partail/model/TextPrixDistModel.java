@@ -5,26 +5,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
-@Table(name = "produit")
-public class Produit implements Serializable {
+@Table(name = "textPrixDis")
+public class TextPrixDistModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
     private  int id;
-    private String libelle;
+    private String type;
     private String description;
-    private int url;
+    private Date date;
     private int isDeleted;
-    public Produit() {
+    public TextPrixDistModel() {
     }
-    public Produit(int id, String libelle, String description, int url, int isDeleted) {
+    public TextPrixDistModel(int id, String type, String description, Date date, int isDeleted) {
         this.id = id;
-        this.libelle = libelle;
+        this.type = type;
         this.description = description;
-        this.url = url;
+        this.date = date;
         this.isDeleted= isDeleted;
     }
 
@@ -36,12 +37,12 @@ public class Produit implements Serializable {
         this.id = id;
     }
 
-    public String getLibelle() {
-        return libelle;
+    public String getType() {
+        return type;
     }
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDescription() {
@@ -52,12 +53,12 @@ public class Produit implements Serializable {
         this.description = description;
     }
 
-    public int getUrl() {
-        return url;
+    public Date getDate() {
+        return date;
     }
 
-    public void setUrl(int url) {
-        this.url = url;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getIsDeleted() {
@@ -74,9 +75,9 @@ public class Produit implements Serializable {
     public String toString() {
         return "Produit{" +
                 "id=" + id +
-                ", libelle='" + libelle + '\'' +
+                ", type='" + type + '\'' +
                 ", description='" + description + '\'' +
-                ", url=" + url +
+                ", date=" + date +
                 ",isDeleted=" + isDeleted +
                 '}';
 

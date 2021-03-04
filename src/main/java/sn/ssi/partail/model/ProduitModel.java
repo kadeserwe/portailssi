@@ -1,11 +1,14 @@
 package sn.ssi.partail.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "service")
-public class Service implements Serializable {
+@Table(name = "produit")
+public class ProduitModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -15,19 +18,14 @@ public class Service implements Serializable {
     private String description;
     private int url;
     private int isDeleted;
-    private TypeService typeservice;
-
-
-
-    public Service() {
+    public ProduitModel() {
     }
-    public Service(int id, String libelle, String description, int url, int isDeleted,TypeService typeservice) {
+    public ProduitModel(int id, String libelle, String description, int url, int isDeleted) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.url = url;
         this.isDeleted= isDeleted;
-        this.typeservice =typeservice;
     }
 
     public int getId() {
@@ -71,20 +69,10 @@ public class Service implements Serializable {
     }
 
 
-    public TypeService getTypeservice() {
-        return typeservice;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "typeservice_id")
-    public void setTypeservice(TypeService typeservice) {
-        this.typeservice = typeservice;
-    }
-
 
     @Override
     public String toString() {
-        return "Service{" +
+        return "Produit{" +
                 "id=" + id +
                 ", libelle='" + libelle + '\'' +
                 ", description='" + description + '\'' +
@@ -94,4 +82,3 @@ public class Service implements Serializable {
 
     }
 }
-

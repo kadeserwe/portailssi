@@ -7,24 +7,25 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "typeService")
-public class TypeService implements Serializable {
+@Table(name = "evenement")
+public class EvenementModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
     private  int id;
     private String libelle;
-
-
-
+    private String description;
+    private byte type;
     private int isDeleted;
-    public TypeService() {
+    public EvenementModel() {
     }
-    public TypeService(int id, String libelle, int isDeleted) {
+    public EvenementModel(int id, String libelle, String description, byte type, int isDeleted) {
         this.id = id;
         this.libelle = libelle;
-        this.id =  isDeleted;
+        this.description = description;
+        this.type = type;
+        this.isDeleted= isDeleted;
     }
 
     public int getId() {
@@ -42,6 +43,23 @@ public class TypeService implements Serializable {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public byte getType() {
+        return type;
+    }
+
+    public void setTyepe(byte type) {
+        this.type = type;
+    }
+
     public int getIsDeleted() {
         return isDeleted;
     }
@@ -54,12 +72,13 @@ public class TypeService implements Serializable {
 
     @Override
     public String toString() {
-        return "typeService{" +
+        return "Evenement{" +
                 "id=" + id +
                 ", libelle='" + libelle + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
                 ",isDeleted=" + isDeleted +
                 '}';
 
     }
 }
-
