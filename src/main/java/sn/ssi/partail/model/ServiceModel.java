@@ -14,8 +14,11 @@ public class ServiceModel implements Serializable {
     @Id
     @GeneratedValue
     private  int id;
+    private String code;
     private String libelle;
+    @Column(length = 2000)
     private String description;
+    private String urlImage;
     private int url;
     private int isDeleted;
     @ManyToOne(optional = false)
@@ -27,10 +30,12 @@ public class ServiceModel implements Serializable {
 
     public ServiceModel() {
     }
-    public ServiceModel(int id, String libelle, String description, int url, int isDeleted, TypeServiceModel typeservice) {
+    public ServiceModel(int id, String code, String libelle, String description, String urlImage, int url, int isDeleted, TypeServiceModel typeservice) {
         this.id = id;
+        this.code = code;
         this.libelle = libelle;
         this.description = description;
+        this.urlImage = urlImage;
         this.url = url;
         this.isDeleted= isDeleted;
         this.typeservice =typeservice;
@@ -43,6 +48,10 @@ public class ServiceModel implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getCode() { return code; }
+
+    public void setCode(String code) { this.code = code; }
 
     public String getLibelle() {
         return libelle;
@@ -59,6 +68,10 @@ public class ServiceModel implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getUrlImage() { return urlImage; }
+
+    public void setUrlImage(String urlImage) { this.urlImage = urlImage; }
 
     public int getUrl() {
         return url;
