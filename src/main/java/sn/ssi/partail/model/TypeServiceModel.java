@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-//
+
 @Entity
 @Table(name = "typeService")
 public class TypeServiceModel implements Serializable {
