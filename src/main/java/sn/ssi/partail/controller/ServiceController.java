@@ -7,6 +7,8 @@ import sn.ssi.partail.model.ServiceModel;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
+@RequestMapping(path = "/portail")
 @RestController
 public class ServiceController {
    @Autowired

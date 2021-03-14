@@ -8,6 +8,8 @@ import sn.ssi.partail.model.TypeServiceModel;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/portail")
+@CrossOrigin(origins = "*")
 public class TypeServiceController {
    @Autowired
    private ItypeServiceDao typeserviceDao;
