@@ -14,15 +14,12 @@ public class FooterModel implements Serializable {
     private String text;
     private int isDeleted;
 
-    @Version
-    private  int version;
     public FooterModel() {
     }
-    public FooterModel(int id, String text, int isDeleted, int version) {
+    public FooterModel(int id, String text, int isDeleted) {
         this.id = id;
         this.text = text;
         this.isDeleted= isDeleted;
-        this.version=version;
 
     }
 
@@ -50,13 +47,6 @@ public class FooterModel implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
 
     @Override
     public String toString() {
