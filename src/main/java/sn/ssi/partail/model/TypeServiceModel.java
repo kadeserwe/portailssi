@@ -14,6 +14,7 @@ public class TypeServiceModel implements Serializable {
     @Id
     @GeneratedValue
     private  int id;
+    private String code;
     private String libelle;
 
 
@@ -21,8 +22,9 @@ public class TypeServiceModel implements Serializable {
     private int isDeleted;
     public TypeServiceModel() {
     }
-    public TypeServiceModel(int id, String libelle, int isDeleted) {
+    public TypeServiceModel(int id, String code, String libelle, int isDeleted) {
         this.id = id;
+        this.code = code;
         this.libelle = libelle;
         this.id =  isDeleted;
     }
@@ -35,6 +37,10 @@ public class TypeServiceModel implements Serializable {
         this.id = id;
     }
 
+    public String getCode() { return code; }
+
+    public void setCode(String code) { this.code = code; }
+
     public String getLibelle() {
         return libelle;
     }
@@ -42,6 +48,7 @@ public class TypeServiceModel implements Serializable {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
     public int getIsDeleted() {
         return isDeleted;
     }
