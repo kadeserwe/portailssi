@@ -68,7 +68,7 @@ public class ProduitModel implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-
+//loooo
 
     @Override
     public String toString() {
