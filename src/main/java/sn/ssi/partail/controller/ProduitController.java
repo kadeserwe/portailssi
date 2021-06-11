@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import sn.ssi.partail.dao.IproduitDao;
 import sn.ssi.partail.model.ProduitModel;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,9 +33,9 @@ public class ProduitController {
 
    /*modifier un produit*/
    @PutMapping(value = "/produits")
-   public void modifierProduit(@RequestBody ProduitModel produitModel) {
+   public void modifierProduit(@Valid @RequestBody ProduitModel produitModel) {
        
-      produitDao.save(produitModel);
+      produitDao.findAll();
    }
 
   /* supprimer un produit*/

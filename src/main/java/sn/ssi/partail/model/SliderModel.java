@@ -16,11 +16,11 @@ public class SliderModel implements Serializable {
     private  int id;
     private int ordrePassage;
     private int intervalle;
-    private int nomSlider;
+    private String nomSlider;
     private int isDeleted;
     public SliderModel() {
     }
-    public SliderModel(int id, int ordrePassage, int intervalle, int nomSlider, int isDeleted) {
+    public SliderModel(int id, int ordrePassage, int intervalle, String nomSlider, int isDeleted) {
         this.id = id;
         this.ordrePassage = ordrePassage;
         this.intervalle = intervalle;
@@ -52,11 +52,11 @@ public class SliderModel implements Serializable {
         this.intervalle = intervalle;
     }
 
-    public int getNomSlider() {
+    public String getNomSlider() {
         return nomSlider;
     }
 
-    public void setNomSlider(int nomSlider) {
+    public void setNomSlider(String nomSlider) {
         this.nomSlider = nomSlider;
     }
 

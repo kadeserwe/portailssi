@@ -1,9 +1,6 @@
 package sn.ssi.partail.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -16,12 +13,17 @@ public class FooterModel implements Serializable {
     private  int id;
     private String text;
     private int isDeleted;
+
+    @Version
+    private  int version;
     public FooterModel() {
     }
-    public FooterModel(int id, String text, int isDeleted) {
+    public FooterModel(int id, String text, int isDeleted, int version) {
         this.id = id;
         this.text = text;
         this.isDeleted= isDeleted;
+        this.version=version;
+
     }
 
     public int getId() {
@@ -48,7 +50,13 @@ public class FooterModel implements Serializable {
         this.isDeleted = isDeleted;
     }
 
+    public int getVersion() {
+        return version;
+    }
 
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     @Override
     public String toString() {

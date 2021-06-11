@@ -1,9 +1,6 @@
 package sn.ssi.partail.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -18,6 +15,7 @@ public class ProduitModel implements Serializable {
     private String description;
     private int url;
     private int isDeleted;
+
     public ProduitModel() {
     }
     public ProduitModel(int id, String libelle, String description, int url, int isDeleted) {
@@ -68,7 +66,6 @@ public class ProduitModel implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-//loooo
 
     @Override
     public String toString() {

@@ -18,7 +18,7 @@ public class ImageModel implements Serializable {
     private String chaineCaractere;
     private int isDeleted;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false) //(cascade = CascadeType.PERSIST)//
     @NotNull
     @JsonIgnoreProperties(value= "footer",  allowSetters = true)
     private FooterModel footer;
@@ -27,18 +27,21 @@ public class ImageModel implements Serializable {
     @NotNull
     @JsonIgnoreProperties(value= "slider",  allowSetters = true)
     private SliderModel slider;
+    //@Version
+    private Long version;
 
 
 
     public ImageModel() {
     }
-    public ImageModel(int id, String nom, String chaineCaractere, int isDeleted, FooterModel footer, SliderModel slider) {
+    public ImageModel(int id, String nom, String chaineCaractere, int isDeleted, FooterModel footer, SliderModel slider, Long version) {
         this.id = id;
         this.nom = nom;
         this.chaineCaractere = chaineCaractere;
         this.isDeleted= isDeleted;
         this.footer = footer;
         this.slider = slider;
+        this.version = version;
     }
 
     public int getId() {
@@ -93,7 +96,13 @@ public class ImageModel implements Serializable {
         this.slider = slider;
     }
 
+    public Long getVersion() {
+        return version;
+    }
 
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     @Override
     public String toString() {
